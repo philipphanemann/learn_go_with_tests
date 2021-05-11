@@ -14,7 +14,7 @@ func SumAll(numbersToSum ...[]int) (sums []int) {
 	return sums
 }
 
-func SumTail(numbersToSum ...[]int) (sums []int) {
+func SumTails(numbersToSum ...[]int) (sums []int) {
 	for _, numbers := range numbersToSum {
 		if len(numbers) == 0 {
 			sums = append(sums, 0)
