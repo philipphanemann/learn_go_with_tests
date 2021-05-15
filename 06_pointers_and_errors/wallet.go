@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Bitcoin int
 
 type Wallet struct {
@@ -13,4 +15,12 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 func (w *Wallet) Balance() Bitcoin {
 	// 'return (*w).balance' would also be fully valid
 	return w.balance
+}
+
+type Stringer interface {
+	String() string
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
