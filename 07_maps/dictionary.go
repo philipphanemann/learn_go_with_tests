@@ -16,3 +16,8 @@ func (d Dictionary) Search(word string) (string, error) {
 	}
 	return definition, nil
 }
+
+// Add method for adding content to dictionary
+func (d Dictionary) Add(key, value string) {
+	d[key] = value
+}
