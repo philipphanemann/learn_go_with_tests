@@ -38,3 +38,8 @@ func (d Dictionary) Add(key, value string) error {
 	}
 	return nil
 }
+
+// Update dictionary entry
+func (d Dictionary) Update(key, value string) {
+	d[key] = value
+}
