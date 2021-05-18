@@ -55,3 +55,8 @@ func (d Dictionary) Update(key, value string) error {
 
 	return nil
 }
+
+// Delete operation for dictionary
+func (d Dictionary) Delete(key string) {
+	delete(d, key)
+}
