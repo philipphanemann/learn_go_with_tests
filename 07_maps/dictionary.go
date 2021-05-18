@@ -4,8 +4,9 @@ package main
 type Dictionary map[string]string
 
 const (
-	errKeyNotFound = DictionaryErr("could not find the word you were looking for")
-	errWordExists  = DictionaryErr("cannot add word because it already exists")
+	errKeyNotFound      = DictionaryErr("could not find the word you were looking for")
+	errWordExists       = DictionaryErr("cannot add word because it already exists")
+	errWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
 type DictionaryErr string
@@ -40,6 +41,13 @@ func (d Dictionary) Add(key, value string) error {
 }
 
 // Update dictionary entry
-func (d Dictionary) Update(key, value string) {
+func (d Dictionary) Update(key, value string) error {
+	_, err := d.Search(key)
+	if err == errKeyNotFound {
+		return errWordDoesNotExist
+	}
+
 	d[key] = value
+
+	return nil
 }
